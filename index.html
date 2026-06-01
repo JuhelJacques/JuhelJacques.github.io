@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacques Juhel — Professeur émérite Université Rennes 2, France</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1612;
+    --ink-light: #4a3f35;
+    --ink-faint: #8a7d72;
+    --cream: #faf7f2;
+    --warm: #f0ebe2;
+    --rule: #c8bfb0;
+    --accent: #7a4f2e;
+    --accent-light: #b8834a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 48px;
+    animation: fadeDown 0.6s ease both;
+  }
+
+  .header-left h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .header-left .grade {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+
+  .header-right { text-align: right; }
+
+  .header-right a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .header-right a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .research-banner {
+    background: var(--warm);
+    border-left: 3px solid var(--accent);
+    padding: 14px 20px;
+    margin-bottom: 56px;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-light);
+    animation: fadeDown 0.6s 0.1s ease both;
+  }
+
+  section {
+    margin-bottom: 60px;
+    animation: fadeUp 0.5s ease both;
+  }
+  section:nth-child(2) { animation-delay: 0.15s; }
+  section:nth-child(3) { animation-delay: 0.22s; }
+  section:nth-child(4) { animation-delay: 0.29s; }
+  section:nth-child(5) { animation-delay: 0.36s; }
+  section:nth-child(6) { animation-delay: 0.43s; }
+
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .pub-list { list-style: none; }
+
+  .pub-entry {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--warm);
+    transition: background 0.15s;
+  }
+  .pub-entry:first-child { border-top: 1px solid var(--warm); }
+  .pub-entry:hover { background: var(--warm); margin: 0 -12px; padding-left: 12px; padding-right: 12px; border-radius: 2px; }
+
+  .pub-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    padding-top: 3px;
+    text-align: right;
+  }
+
+  .pub-content { font-size: 0.95rem; line-height: 1.6; }
+  .pub-content .authors { color: var(--ink-light); }
+  .pub-content .title { font-style: italic; color: var(--ink); }
+  .pub-content .journal { color: var(--ink-light); }
+  .pub-content .doi a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent-light);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .pub-content .doi a:hover { color: var(--accent); text-decoration: underline; }
+
+  .book-entry {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--warm);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .book-entry:first-child { border-top: 1px solid var(--warm); }
+  .book-entry .year-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-faint);
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  .thesis-entry {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 4px 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--warm);
+    font-size: 0.92rem;
+  }
+  .thesis-entry:first-child { border-top: 1px solid var(--warm); }
+  .thesis-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--ink-faint);
+    padding-top: 3px;
+  }
+  .thesis-author { font-weight: 500; color: var(--ink); }
+  .thesis-title { font-style: italic; color: var(--ink-light); grid-column: 2; }
+
+  /* Conférences — affichage direct sans dépliage */
+  .conf-year-group { margin-bottom: 16px; }
+
+  .conf-year-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 4px;
+  }
+
+  .conf-item {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--warm);
+    color: var(--ink-light);
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(250,247,242,0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--rule);
+    padding: 10px 40px;
+    margin: 0 -40px 48px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    padding: 2px 0;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  nav a:hover { color: var(--accent); border-color: var(--accent); }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media print {
+    body { background: white; }
+    .page { padding: 20px; }
+  }
+
+  @media (max-width: 600px) {
+    header { grid-template-columns: 1fr; }
+    .header-right { text-align: left; }
+    .header-left h1 { font-size: 2.2rem; }
+    nav { padding: 10px 16px; margin: 0 -16px 32px; }
+    .page { padding: 40px 16px 80px; }
+    .pub-entry { grid-template-columns: 38px 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="header-left">
+      <h1>Jacques Juhel</h1>
+      <p class="grade">Professeur émérite</p>
+    </div>
+    <div class="header-right">
+      <a href="mailto:jacques.juhel@univ-rennes2.fr">jacques.juhel1@wanadoo.fr</a>
+    </div>
+  </header>
+
+  <div class="research-banner">
+    Psychologie différentielle · Modélisation psychométrique
+  </div>
+
+  <nav>
+    <a href="#articles">Articles</a>
+    <a href="#ouvrages">Ouvrages</a>
+    <a href="#chapitres">Chapitres</a>
+    <a href="#conferences">Conférences</a>
+    <a href="#theses">Thèses dirigées</a>
+  </nav>
+
+  <!-- ARTICLES -->
+  <section id="articles">
+    <h2 class="section-title">Articles dans des revues à comité de lecture</h2>
+    <ul class="pub-list">
+
+      <li class="pub-entry">
+        <span class="pub-year">2025</span>
+        <div class="pub-content">
+          <span class="authors">Núñez-Regueiro, F., Juhel, J., &amp; Wang, M.T.</span>
+          <span class="title"> Does Needs Satisfaction Reflect Positive Needs-Supplies Fit or Misfit? A New Look at Autonomy Supportive Contexts Using Cubic Response Surface Analysis.</span>
+          <span class="journal"> <em>Social Psychology of Education</em>, 28:43.</span>
+          <div class="doi"><a href="https://doi.org/10.1007/s11218-024-09959-3">doi.org/10.1007/s11218-024-09959-3</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2024</span>
+        <div class="pub-content">
+          <span class="authors">Núñez-Regueiro, F., Santana-Monagas, E., &amp; Juhel, J.</span>
+          <span class="title"> How Needs-Supplies Fit Processes With Teachers, Peers, and Parents Relate to Youth Outcomes: A Theoretical and Methodological Extension of Self-Determination Theory.</span>
+          <span class="journal"> <em>Journal of Youth and Adolescence</em>.</span>
+          <div class="doi"><a href="https://doi.org/10.1007/s10964-024-02049-9">doi.org/10.1007/s10964-024-02049-9</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2024</span>
+        <div class="pub-content">
+          <span class="authors">Jeune, N., Juhel, J., Dessus, P., &amp; Atal, I.</span>
+          <span class="title"> Six factors facilitating teachers' use of research. An experimental factorial survey of educational stakeholders perspectives.</span>
+          <span class="journal"> <em>Frontiers in Education</em>, Vol. 9.</span>
+          <div class="doi"><a href="https://doi.org/10.3389/feduc.2024.1368565">doi.org/10.3389/feduc.2024.1368565</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2021</span>
+        <div class="pub-content">
+          <span class="authors">Núñez-Regueiro, F., Juhel, J., Bressoux, P., &amp; Nurra, C.</span>
+          <span class="title"> Identifying Reciprocities in School Motivation Research: A Review of Issues and Solutions Associated With Cross-Lagged Effects Models.</span>
+          <span class="journal"> <em>Journal of Educational Psychology</em>.</span>
+          <div class="doi"><a href="https://doi.org/10.1037/edu0000700">doi.org/10.1037/edu0000700</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2021</span>
+        <div class="pub-content">
+          <span class="authors">Peter, L., Michinov, N., Besançon, M., Michinov, E., Juhel, J., et al.</span>
+          <span class="title"> Revisiting the Effects of Gender Diversity in Small Groups on Divergent Thinking: A Large-Scale Study Using Synchronous Electronic Brainstorming.</span>
+          <span class="journal"> <em>Frontiers in Psychology</em>.</span>
+          <div class="doi"><a href="https://www.frontiersin.org/articles/10.3389/fpsyg.2021.723235/full">frontiersin.org/…/fpsyg.2021.723235</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2019</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J.</span>
+          <span class="title"> Quelques aspects de l'évolution et des extensions de l'analyse factorielle en facteurs communs.</span>
+          <span class="journal"> <em>Bulletin de Psychologie</em>, 72(5), 563, 379–399.</span>
+          <div class="doi"><a href="https://doi.org/10.3917/bupsy.563.0379">doi.org/10.3917/bupsy.563.0379</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2018</span>
+        <div class="pub-content">
+          <span class="authors">Guyon, H., Kop, J.-L., Juhel, J., &amp; Falissard, B.</span>
+          <span class="title"> Measurement, ontology and epistemology: Psychology needs pragmatism-realism.</span>
+          <span class="journal"> <em>Theory &amp; Psychology</em>, 28(2), 149–171.</span>
+          <div class="doi"><a href="https://doi.org/10.1177/0959354318761606">doi.org/10.1177/0959354318761606</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2018</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J.</span>
+          <span class="title"> Studying differential invariants in developmental variations.</span>
+          <span class="journal"> <em>Psychology</em>, 9(4), 655–678.</span>
+          <div class="doi"><a href="https://doi.org/10.4236/psych.2018.94041">doi.org/10.4236/psych.2018.94041</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2018</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J.</span>
+          <span class="title"> Reuchlin et la méthodologie.</span>
+          <span class="journal"> <em>L'Orientation Scolaire et Professionnelle</em>, 47(1), 61–84.</span>
+          <div class="doi"><a href="https://doi.org/10.4000/osp.5600">doi.org/10.4000/osp.5600</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2017</span>
+        <div class="pub-content">
+          <span class="authors">Michinov, E., &amp; Juhel, J.</span>
+          <span class="title"> Multilevel influences of team identification and transactive memory on team effectiveness.</span>
+          <span class="journal"> <em>Team Performance Management</em>, 24(1/2), 106–120.</span>
+          <div class="doi"><a href="https://doi.org/10.1108/TPM-05-2017-0021">doi.org/10.1108/TPM-05-2017-0021</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2017</span>
+        <div class="pub-content">
+          <span class="authors">Jacquin, P., &amp; Juhel, J.</span>
+          <span class="title"> An Individual Mixed-Evaluation Method for Career Intervention.</span>
+          <span class="journal"> <em>The Career Development Quarterly</em>, 65, 16–28.</span>
+          <div class="doi"><a href="https://doi.org/10.1002/cdq.12077">doi.org/10.1002/cdq.12077</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2016</span>
+        <div class="pub-content">
+          <span class="authors">Audusseau, J., &amp; Juhel, J.</span>
+          <span class="title"> Une approche transactionnelle de la quantification des probabilités chez l'enfant.</span>
+          <span class="journal"> <em>Enfance</em>, 3/2016, 261–285.</span>
+          <div class="doi"><a href="https://doi.org/10.4074/S0013754516003013">doi.org/10.4074/S0013754516003013</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2015</span>
+        <div class="pub-content">
+          <span class="authors">Barbu, S., Nardy, A., Chevrot, J.-P., Guellaï, B., Glas, L., Juhel, J., &amp; Lemasson, A.</span>
+          <span class="title"> Sex differences in language across early childhood: Family socioeconomic status does not impact boys and girls equally.</span>
+          <span class="journal"> <em>Frontiers in Psychology</em>, section language sciences.</span>
+          <div class="doi"><a href="https://doi.org/10.3389/fpsyg.2015.01874">doi.org/10.3389/fpsyg.2015.01874</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2015</span>
+        <div class="pub-content">
+          <span class="authors">Azzopardi, B., Juhel, J., &amp; Auffray, C.</span>
+          <span class="title"> Aging and performance on laboratory and naturalistic prospective memory tasks: The mediating role of executive flexibility and retrospective memory.</span>
+          <span class="journal"> <em>Intelligence</em>, 52, 24–35.</span>
+          <div class="doi"><a href="https://psycnet.apa.org/doi/10.1016/j.intell.2015.06.007">psycnet.apa.org/…</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2015</span>
+        <div class="pub-content">
+          <span class="authors">Brunot, S., Valéau, P., &amp; Juhel, J.</span>
+          <span class="title"> La clarté du concept de soi : Validation d'une échelle de mesure en langue française.</span>
+          <span class="journal"> <em>European Review of Applied Psychology</em>, 65, 143–153.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/j.erap.2015.04.001">doi.org/10.1016/j.erap.2015.04.001</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2015</span>
+        <div class="pub-content">
+          <span class="authors">Audusseau, J., &amp; Juhel, J.</span>
+          <span class="title"> Working memory in children predicts performance on a Gambling Task.</span>
+          <span class="journal"> <em>The Journal of Genetic Psychology</em>, 176(1), 38–54.</span>
+          <div class="doi"><a href="https://doi.org/10.1080/00221325.2014.1002749">doi.org/10.1080/00221325.2014.1002749</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2014</span>
+        <div class="pub-content">
+          <span class="authors">Azzopardi, B., Auffray, C., &amp; Juhel, J.</span>
+          <span class="title"> L'effet paradoxal du vieillissement sur la mémoire prospective : hypothèses explicatives.</span>
+          <span class="journal"> <em>Gériatrie, Psychologie et Neuropsychiatrie du Vieillissement</em>, 13(1), 64–72.</span>
+          <div class="doi"><a href="https://doi.org/10.1684/pnv.2014.0513">doi.org/10.1684/pnv.2014.0513</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2013</span>
+        <div class="pub-content">
+          <span class="authors">Jacquin, P., &amp; Juhel, J.</span>
+          <span class="title"> Modulation de l'expression identitaire par l'utilisation d'appellations synonymes : le cas des individus sans emploi.</span>
+          <span class="journal"> <em>Psychologie du Travail et des Organisations</em>, 19, 279–291.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/S1420-2530(16)30057-7">doi.org/10.1016/S1420-2530(16)30057-7</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2013</span>
+        <div class="pub-content">
+          <span class="authors">Jacquin, P., &amp; Juhel, J.</span>
+          <span class="title"> Développement de carrière et construction de sa vie: une nouvelle méthode pour l'orientation tout au long de la vie.</span>
+          <span class="journal"> <em>L'Orientation Scolaire et Professionnelle</em>, 42(2).</span>
+          <div class="doi"><a href="https://doi.org/10.4000/osp.4115">doi.org/10.4000/osp.4115</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2013</span>
+        <div class="pub-content">
+          <span class="authors">Rouxel, G., Briec, J., Juhel, J., &amp; Le Maner-Idrissi, G.</span>
+          <span class="title"> Analyse de la structure factorielle du questionnaire de tempérament EAS.</span>
+          <span class="journal"> <em>Revue Européenne de Psychologie Appliquée</em>, 63, 173–183.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/j.erap.2013.02.002">doi.org/10.1016/j.erap.2013.02.002</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2013</span>
+        <div class="pub-content">
+          <span class="authors">Barbu, S., Nardy, A., Chevrot, J.-P., &amp; Juhel, J.</span>
+          <span class="title"> Language use and evaluation during early childhood: Social norms or environmental regularities?</span>
+          <span class="journal"> <em>Linguistics</em>, 51, 381–411.</span>
+          <div class="doi"><a href="https://doi.org/10.1515/ling-2013-0015">doi.org/10.1515/ling-2013-0015</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2012</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J., Brunot, S., &amp; Zapata, G.</span>
+          <span class="title"> Response distortion on the NEO PI-R among candidates taking the entrance examination to the ENAC (France).</span>
+          <span class="journal"> <em>Psychology</em>, 3, 393–398.</span>
+          <div class="doi"><a href="https://doi.org/10.4236/psych.2012.35055">doi.org/10.4236/psych.2012.35055</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2012</span>
+        <div class="pub-content">
+          <span class="authors">Brunot, S., &amp; Juhel, J.</span>
+          <span class="title"> Comparaisons sociales et temporelles, estime de soi et activité de recherche d'emploi en situation de chômage de longue durée.</span>
+          <span class="journal"> <em>L'Année Psychologique</em>, 112, 197–226.</span>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2011</span>
+        <div class="pub-content">
+          <span class="authors">Lecomte, G., &amp; Juhel, J.</span>
+          <span class="title"> The effects of neurofeedback training on memory performance in elderly subjects.</span>
+          <span class="journal"> <em>Psychology</em>, 2(8), 199–205.</span>
+          <div class="doi"><a href="https://doi.org/10.4236/psych.2011.28129">doi.org/10.4236/psych.2011.28129</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2010</span>
+        <div class="pub-content">
+          <span class="authors">Michinov, N., Brunot, S., Le Bohec, O., Juhel, J., &amp; Delaval, M.</span>
+          <span class="title"> Procrastination, participation, and performance in online learning environments.</span>
+          <span class="journal"> <em>Computers &amp; Education</em>, 56, 243–252.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/j.compedu.2010.07.025">doi.org/10.1016/j.compedu.2010.07.025</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2008</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J.</span>
+          <span class="title"> Les protocoles individuels dans l'évaluation par le psychologue praticien de l'efficacité de son intervention.</span>
+          <span class="journal"> <em>Pratiques Psychologiques</em>, 14, 357–373.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/j.prps.2008.05.006">doi.org/10.1016/j.prps.2008.05.006</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2006</span>
+        <div class="pub-content">
+          <span class="authors">Dauvier, B., &amp; Juhel, J.</span>
+          <span class="title"> Différences individuelles dans la sélection des stratégies : un modèle dynamique appliqué à l'épreuve du voyageur de commerce.</span>
+          <span class="journal"> <em>L'Année Psychologique</em>, 106, 339–357.</span>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2005</span>
+        <div class="pub-content">
+          <span class="authors">Pry, R., Juhel, J., Bodet, J., &amp; Baghdadli, A.</span>
+          <span class="title"> Stabilité et changement du retard mental chez le jeune autiste.</span>
+          <span class="journal"> <em>Enfance</em>, 3/2005, 270–277.</span>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2005</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J., &amp; Rouxel, G.</span>
+          <span class="title"> Effets du contexte d'évaluation sur les composantes de la désirabilité sociale.</span>
+          <span class="journal"> <em>Psychologie du Travail et des Organisations</em>, 11, 59–68.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/j.pto.2005.02.006">doi.org/10.1016/j.pto.2005.02.006</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2001</span>
+        <div class="pub-content">
+          <span class="authors">Auffray, C., &amp; Juhel, J.</span>
+          <span class="title"> Effets généraux et différentiels d'un programme d'entraînement cognitif multimodal chez la personne âgée.</span>
+          <span class="journal"> <em>L'Année Psychologique</em>, 101, 65–89.</span>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2000</span>
+        <div class="pub-content">
+          <span class="authors">Labrell, F., Deleau, M., &amp; Juhel, J.</span>
+          <span class="title"> Paternal and maternal strategies towards toddlers.</span>
+          <span class="journal"> <em>International Journal of Behavioral Development</em>, 24, 356–361.</span>
+          <div class="doi"><a href="https://doi.org/10.1080/01650250050118349">doi.org/10.1080/01650250050118349</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">1998</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J., &amp; Auffray, C.</span>
+          <span class="title"> L'inhibition cognitive chez la personne âgée: une recherche de validation conceptuelle.</span>
+          <span class="journal"> <em>European Review of Applied Psychology</em>, 48(1), 27–33.</span>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">1993</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J., &amp; Neiger, H.</span>
+          <span class="title"> The illusory movement sensation paradigm: some personality correlates.</span>
+          <span class="journal"> <em>Personality and Individual Differences</em>, 14, 293–296.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/0191-8869(93)90210-T">doi.org/10.1016/0191-8869(93)90210-T</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">1993</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J.</span>
+          <span class="title"> Should we take the shape of reaction time distributions into account when studying the relationship between RT and psychometric intelligence?</span>
+          <span class="journal"> <em>Personality and Individual Differences</em>, 15, 357–360.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/0191-8869(93)90231-Q">doi.org/10.1016/0191-8869(93)90231-Q</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">1991</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J.</span>
+          <span class="title"> Spatial abilities and individual differences in visual information processing.</span>
+          <span class="journal"> <em>Intelligence</em>, 15, 117–137.</span>
+          <div class="doi"><a href="https://doi.org/10.1016/0160-2896(91)90025-9">doi.org/10.1016/0160-2896(91)90025-9</a></div>
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">1989</span>
+        <div class="pub-content">
+          <span class="authors">Juhel, J.</span>
+          <span class="title"> Analyse des aptitudes intellectuelles: Revue de quelques travaux récents.</span>
+          <span class="journal"> <em>L'Année Psychologique</em>, 89, 63–86.</span>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- OUVRAGES -->
+  <section id="ouvrages">
+    <h2 class="section-title">Direction d'ouvrages scientifiques</h2>
+
+    <div class="book-entry">
+      <span class="year-tag">2015</span>
+      Juhel, J., &amp; Rouxel, G. (Eds.). <em>Différences et variabilités en psychologie.</em> Rennes : PUR.
+    </div>
+    <div class="book-entry">
+      <span class="year-tag">1999</span>
+      Juhel, J. (Ed.). <em>Les Modèles de Réponse à l'Item en psychologie.</em> Numéro Spécial de la revue <em>Psychologie et Psychométrie</em>, 20(2/3), 192 p.
+    </div>
+    <div class="book-entry">
+      <span class="year-tag">1997</span>
+      Juhel, J., Marivain, T., &amp; Rouxel, G. (Eds.). <em>Psychologie et différences individuelles: questions actuelles.</em> Rennes : PUR.
+    </div>
+  </section>
+
+  <!-- CHAPITRES -->
+  <section id="chapitres">
+    <h2 class="section-title">Chapitres dans des ouvrages scientifiques</h2>
+    <ul class="pub-list">
+
+      <li class="pub-entry">
+        <span class="pub-year">2018</span>
+        <div class="pub-content">
+          Jacquin, P., &amp; Juhel, J. Les apports et les défis d'une méthode individuelle d'évaluation mixte des interventions en orientation professionnelle. In M. Bujold et al. (Eds.), <em>Oser les défis des méthodes mixtes</em> (pp. 148–156). ACFAS, Montréal.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2016</span>
+        <div class="pub-content">
+          Juhel, J. Préface. In J.-L. Beauvois &amp; N. Dubois, <em>Psychologie de la personnalité et évaluation</em> (pp. 7–14). PUG, Grenoble.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2015</span>
+        <div class="pub-content">
+          Juhel, J. Modèles structuraux et inférence causale. In J. Juhel &amp; G. Rouxel (Eds.), <em>Différences et variabilités en psychologie</em> (pp. 309–352). PUR, Rennes.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2014</span>
+        <div class="pub-content">
+          Juhel, J. L'explication causale et l'évolution de son statut dans la perspective structurale de Maurice Reuchlin. In J. Collange, E. Loarer, &amp; T. Lubart (Eds.), <em>La psychologie différentielle au 21ème siècle</em> (pp. 6–9). Éd. Lati.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2013</span>
+        <div class="pub-content">
+          Juhel, J. La recherche d'invariants différentiels dans les variations développementales. In S. Le Sourn-Bissaoui et al. (Eds.), <em>Développements et variabilités</em> (pp. 13–41). PUR, Rennes.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2011</span>
+        <div class="pub-content">
+          Juhel, J., Gilles, P.-Y., Bouvard, M., et al. Validité des modèles et des outils de l'examen psychologique. In R. Voyazopoulos et al. (Eds.), <em>L'examen psychologique</em> (pp. 179–251). Dunod, Paris.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2008</span>
+        <div class="pub-content">
+          Juhel, J. Les fondements cognitifs de l'intelligence. In P.-Y. Gilles (Ed.), <em>Psychologie différentielle</em> (pp. 163–226). Bréal, Paris.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2005</span>
+        <div class="pub-content">
+          Juhel, J. La psychométrie : la recherche et l'évaluation des compétences qui caractérisent l'intelligence. In J. Lautrey &amp; J.-F. Richard (Eds.), <em>L'intelligence</em> (pp. 23–39). Hermès Science, Paris.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">2003</span>
+        <div class="pub-content">
+          Juhel, J. Vieillissement normal et inhibition cognitive. In S. Moutier (Ed.), <em>Inhibition neurale et cognitive</em> (pp. 125–165). Hermès Science, Paris.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">1999</span>
+        <div class="pub-content">
+          Juhel, J. Méthodes d'étude des différences individuelles. In J.P. Rossi (Ed.), <em>Les méthodes de recherche en psychologie</em> (pp. 197–234). Dunod, Paris.
+        </div>
+      </li>
+
+      <li class="pub-entry">
+        <span class="pub-year">1995</span>
+        <div class="pub-content">
+          Juhel, J. L'étude des bases biologiques de l'intelligence. In J. Lautrey (Dir.), <em>L'universel et le différentiel en psychologie</em> (pp. 449–477). PUF, Paris.
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- CONFERENCES -->
+  <section id="conferences">
+    <h2 class="section-title">Conférences invitées &amp; séminaires</h2>
+
+    <div class="conf-year-group">
+      <div class="conf-year-label">2019</div>
+      <div class="conf-items">
+        <div class="conf-item">Juhel, J. (2019, sept.). Introduction à la recherche longitudinale en psychologie. Journées thématiques du LaRAC et de l'ADRIPS, Université Grenoble Alpes.</div>
+        <div class="conf-item">Juhel, J., &amp; Brunot, S. (2019, juil.). Structure du concept de soi et adaptation au travail. PerformanSe Day, Paris.</div>
+      </div>
+    </div>
+
+    <div class="conf-year-group">
+      <div class="conf-year-label">2016–2017</div>
+      <div class="conf-items">
+        <div class="conf-item">Juhel, J. (2017, juin). L'analyse factorielle structurale : modèle, extension, généralisations. Séminaire LAPCOS — Université Nice Sophia Antipolis.</div>
+        <div class="conf-item">Juhel, J. (2016, déc.). L'intelligence du construit d'intelligence. Journée d'études CEFOCOP-Master2 HD, Université Rennes 2.</div>
+        <div class="conf-item">Juhel, J. (2016, juin). Cause et fonction dans la recherche d'orientation structurale en psychologie différentielle. XXIIèmes JIPD, Université Savoie Mont Blanc.</div>
+        <div class="conf-item">Juhel, J. (2016, mai). L'inférence causale dans la recherche structurale en psychologie différentielle. Séminaire CRAC/Paragraphe, Université Paris 8.</div>
+      </div>
+    </div>
+
+    <div class="conf-year-group">
+      <div class="conf-year-label">2015</div>
+      <div class="conf-items">
+        <div class="conf-item">Juhel, J. (2015, déc.). Fondements épistémologiques des modèles d'équations structurelles. Séminaire équipe 1, EA4556, Université Paul Valéry, Montpellier.</div>
+        <div class="conf-item">Juhel, J. (2015, sept.). More than just the mean: Modeling intra-individual variability. ISSBD workshop, University of Geneva.</div>
+        <div class="conf-item">Juhel, J. (2015, sept.). Modèles d'équations structurelles en psychologie. 56ème congrès SFP, Université de Strasbourg.</div>
+        <div class="conf-item">Juhel, J. (2015, avr.). Variations individuelles dans le contrôle exécutif chez la personne âgée. Université François Rabelais, Tours.</div>
+      </div>
+    </div>
+
+    <div class="conf-year-group">
+      <div class="conf-year-label">2013–2014</div>
+      <div class="conf-items">
+        <div class="conf-item">Juhel, J. (2014, avr.). La théorie des intelligences multiples : entre science et rhétorique. Conférence EN, bassin de Carhaix.</div>
+        <div class="conf-item">Juhel, J. (2014, nov.). Où est l'individuel dans l'étude des différences individuelles de personnalité ? Journée d'étude, Université de Rouen.</div>
+        <div class="conf-item">Juhel, J. (2013, déc.). L'analyse de médiation dans le cadre contrefactuel de l'inférence causale. Séminaire CRPCC/LPE, Rennes.</div>
+        <div class="conf-item">Juhel, J. (2013, juin). Niveaux d'observation et approches méthodologiques dans l'étude de la variabilité intra-individuelle. Colloque Nantes.</div>
+      </div>
+    </div>
+
+    <div class="conf-year-group">
+      <div class="conf-year-label">2010–2012</div>
+      <div class="conf-items">
+        <div class="conf-item">Juhel, J. (2012, juin). Utilisation des modèles de Markov cachés dans l'analyse individuelle des variations d'état de contrôle attentionnel. XXè JIPD, Rennes.</div>
+        <div class="conf-item">Juhel, J. (2010). An introduction to Growth Mixture Modeling using Mplus. INSERM workshop, Paris.</div>
+        <div class="conf-item">Juhel, J. (2010). Latent variable modeling of psychological longitudinal data. INSERM workshop, Saint-Raphaël.</div>
+        <div class="conf-item">Juhel, J. (2011, jan.). Introduction à l'analyse de données longitudinales avec les modèles de courbe de croissance. Université F. Rabelais, Tours.</div>
+      </div>
+    </div>
+
+    <div class="conf-year-group">
+      <div class="conf-year-label">Avant 2010</div>
+      <div class="conf-items">
+        <div class="conf-item">Juhel, J. (2008). Stratégies d'analyse de la variabilité intra-individuelle. Séminaire Cognition, École Doctorale Neurosciences, Université Lyon 2.</div>
+        <div class="conf-item">Juhel, J. (2007, jan.). From factors to the dynamics of intelligence. Journées Scientifiques du LPNC, Université Paris V.</div>
+        <div class="conf-item">Juhel, J. (2005, avr.). L'approche synergétique des dynamiques de coordination. Séminaire EHESS, Paris.</div>
+        <div class="conf-item">Juhel, J. (2003, mai). Dynamiques non linéaires en psychologie cognitive. Colloque International, Université Lyon 2.</div>
+        <div class="conf-item">Juhel, J. (2000, juin). Les systèmes dynamiques non linéaires dans l'étude de la cognition. Journées « Chaos et cognition », ACCION, Aix-en-Provence.</div>
+        <div class="conf-item">Juhel, J. (1995, sept.). Differential psychology and quantitative methodology. Erasmus seminar, Catholic University of Leuven (Belgique).</div>
+        <div class="conf-item">Juhel, J. (1993, août). Human spatial abilities: Dimensions, regions and components. 2nd European Conference on Psychological Assessment, Groningen.</div>
+        <div class="conf-item">Juhel, J. (1991, sept.). Psychometric intelligence and inspection time. 1st European Conference on Psychological Assessment, Barcelona.</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- THÈSES -->
+  <section id="theses">
+    <h2 class="section-title">Direction de thèses</h2>
+    <div class="pub-list">
+
+      <div class="thesis-entry">
+        <span class="thesis-date">mai 2016</span>
+        <span class="thesis-author">Audusseau, J.</span>
+        <span class="thesis-title">Prise de décision sous incertitude et raisonnement probabiliste chez l'enfant : aspects développementaux et différentiels.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">avr. 2016</span>
+        <span class="thesis-author">Guyon, H.</span>
+        <span class="thesis-title">Variables latentes et processus mentaux : une réflexion méthodologique et épistémologique. (co-dir. : B. Falissard)</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">jan. 2016</span>
+        <span class="thesis-author">Yakimova, S.</span>
+        <span class="thesis-title">Validation d'un outil d'investigation de l'image de soi.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">déc. 2014</span>
+        <span class="thesis-author">Lebahar, J.</span>
+        <span class="thesis-title">La variabilité intra-individuelle du contrôle cognitif chez la personne âgée : modélisation et apport prédictif.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">déc. 2013</span>
+        <span class="thesis-author">Azzopardi, B.</span>
+        <span class="thesis-title">La mémoire prospective chez la personne âgée : processus sous-jacents et perspectives d'intervention cognitive.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">juil. 2012</span>
+        <span class="thesis-author">Perchec, C.</span>
+        <span class="thesis-title">Dynamiques individuelles des conduites à risque et de la détresse psychologique à l'adolescence. (co-dir. : F. Bariaud)</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">déc. 2011</span>
+        <span class="thesis-author">Deline, S.</span>
+        <span class="thesis-title">Différences individuelles dans les processus de contrôle attentionnel chez des personnes jeunes et âgées : approches expérimentale et computationnelle.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">juil. 2011</span>
+        <span class="thesis-author">Jacquin, P.</span>
+        <span class="thesis-title">Accompagnement des évolutions identitaires au cours des transitions professionnelles. (co-dir. : S. Laurens)</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">mars 2009</span>
+        <span class="thesis-author">Levoyer, D.</span>
+        <span class="thesis-title">Approches différentielles du contrôle cognitif dans les schizophrénies.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">déc. 2005</span>
+        <span class="thesis-author">Dauvier, B.</span>
+        <span class="thesis-title">Choix stratégiques en situation de résolution de problème : modélisations de la variabilité et du changement.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">déc. 2004</span>
+        <span class="thesis-author">Gaillot, A.-C.</span>
+        <span class="thesis-title">Détresse émotionnelle, stratégies d'ajustement chez des patientes atteintes d'un cancer du sein.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">mai 2004</span>
+        <span class="thesis-author">Salicé, G.</span>
+        <span class="thesis-title">Étude des fonctions exécutives sur une population de seniors.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">jan. 2000</span>
+        <span class="thesis-author">Auffray, C.</span>
+        <span class="thesis-title">Vieillissement, remédiation cognitive et différences individuelles.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">déc. 1997</span>
+        <span class="thesis-author">Rouxel, G.</span>
+        <span class="thesis-title">Determinants cognitivo-affectifs de la performance scolaire : approche interactionniste.</span>
+      </div>
+
+      <div class="thesis-entry">
+        <span class="thesis-date">déc. 1993</span>
+        <span class="thesis-author">Marivain, T.</span>
+        <span class="thesis-title">L'apprentissage de la lecture : réflexions sur quelques déterminants cognitifs. (co-dir. : A. Lieury)</span>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
