@@ -169,22 +169,35 @@
   }
 
   .thesis-entry {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 4px 16px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--warm);
-    font-size: 0.92rem;
-  }
-  .thesis-entry:first-child { border-top: 1px solid var(--warm); }
-  .thesis-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--ink-faint);
-    padding-top: 3px;
-  }
-  .thesis-author { font-weight: 500; color: var(--ink); }
-  .thesis-title { font-style: italic; color: var(--ink-light); grid-column: 2; }
+  display: grid;
+  grid-template-columns: 70px 120px 1fr;
+  gap: 6px 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--warm);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.thesis-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--ink-faint);
+}
+
+.thesis-author {
+  font-weight: 400; /* ← supprime le gras */
+  color: var(--ink);
+}
+
+.thesis-title {
+  font-style: italic;
+  color: var(--ink-light);
+}
+
+/* compactage global */
+.thesis-entry:first-child {
+  border-top: 1px solid var(--warm);
+}
 
   /* Conférences — affichage direct sans dépliage */
   .conf-year-group { margin-bottom: 16px; }
